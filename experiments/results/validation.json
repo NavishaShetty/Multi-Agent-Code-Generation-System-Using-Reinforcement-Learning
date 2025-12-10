@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "timestamp": "2025-12-05T16:59:26.796285",
+    "q_table_path": "experiments/results/q_table.json",
+    "max_iterations": 5
+  },
+  "summary": {
+    "total_tasks": 2,
+    "successful": 2,
+    "success_rate": 1.0,
+    "avg_reward": 10.05
+  },
+  "results": [
+    {
+      "task_id": 1,
+      "task": "Write a function that returns the sum of two numbers",
+      "success": true,
+      "steps": 3,
+      "reward": 10.0,
+      "actions": [
+        "coder",
+        "coder",
+        "tester"
+      ],
+      "final_code": "def add_numbers(num1, num2):\n    \"\"\"Return the sum of two numbers.\n    \n    Args:\n        num1 (int, float): The first number to add.\n        num2 (int, float): The second number to add.\n        \n    Returns:\n        int, float: The sum of the two input numbers.\n        \n    Examples:\n        >>> add_numbers(3, 4)\n        7\n        >>> add_numbers(-1, 5)\n        4\n        >>> add_numbers(2.5, 3.5)\n        6.0\n    \"\"\"\n    return num1 + num2"
+    },
+    {
+      "task_id": 2,
+      "task": "Write a function that reverses a string",
+      "success": true,
+      "steps": 2,
+      "reward": 10.1,
+      "actions": [
+        "coder",
+        "tester"
+      ],
+      "final_code": "def reverse_string(s):\n    \"\"\"Reverse the input string.\n    \n    Args:\n        s (str): The string to be reversed.\n        \n    Returns:\n        str: The reversed string.\n        \n    Examples:\n        >>> reverse_string(\"hello\")\n        'olleh'\n        >>> reverse_string(\"\")\n        ''\n        >>> reverse_string(\"a\")\n        'a'\n    \"\"\"\n    return s[::-1]"
+    }
+  ]
+}

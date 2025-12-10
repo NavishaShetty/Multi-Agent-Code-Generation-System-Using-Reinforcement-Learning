@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "timestamp": "2025-12-05T16:43:54.903225",
+    "pipeline_type": "fixed",
+    "max_iterations": 5
+  },
+  "summary": {
+    "total_tasks": 3,
+    "successful_tasks": 2,
+    "success_rate": 0.667,
+    "avg_iterations": 3.0,
+    "avg_time_seconds": 34.33,
+    "total_time_seconds": 102.99,
+    "total_agent_calls": {
+      "planner": 3,
+      "coder": 3,
+      "tester": 9,
+      "debugger": 7
+    },
+    "avg_agent_calls_per_task": {
+      "planner": 1.0,
+      "coder": 1.0,
+      "tester": 3.0,
+      "debugger": 2.33
+    }
+  },
+  "results": [
+    {
+      "task_id": 1,
+      "task": "Write a function that returns the sum of two numbers",
+      "success": true,
+      "iterations": 2,
+      "time": 22.98,
+      "agent_calls": {
+        "planner": 1,
+        "coder": 1,
+        "tester": 2,
+        "debugger": 1
+      },
+      "test_results": {
+        "passed": 4,
+        "total": 4
+      },
+      "complexity": {
+        "cyclomatic_complexity": 1,
+        "lines_of_code": 3,
+        "num_functions": 1,
+        "max_nesting_depth": 1,
+        "cognitive_complexity": 0,
+        "num_classes": 0,
+        "num_imports": 0,
+        "num_variables": 0,
+        "overall_score": 5.0
+      },
+      "error": null
+    },
+    {
+      "task_id": 2,
+      "task": "Write a function that reverses a string",
+      "success": true,
+      "iterations": 2,
+      "time": 23.75,
+      "agent_calls": {
+        "planner": 1,
+        "coder": 1,
+        "tester": 2,
+        "debugger": 1
+      },
+      "test_results": {
+        "passed": 4,
+        "total": 4
+      },
+      "complexity": {
+        "cyclomatic_complexity": 1,
+        "lines_of_code": 3,
+        "num_functions": 1,
+        "max_nesting_depth": 1,
+        "cognitive_complexity": 0,
+        "num_classes": 0,
+        "num_imports": 0,
+        "num_variables": 0,
+        "overall_score": 5.0
+      },
+      "error": null
+    },
+    {
+      "task_id": 3,
+      "task": "Write a function that checks if a number is even",
+      "success": false,
+      "iterations": 5,
+      "time": 56.26,
+      "agent_calls": {
+        "planner": 1,
+        "coder": 1,
+        "tester": 5,
+        "debugger": 5
+      },
+      "test_results": {
+        "passed": 0,
+        "total": 1
+      },
+      "complexity": {
+        "cyclomatic_complexity": 1,
+        "lines_of_code": 8,
+        "num_functions": 1,
+        "max_nesting_depth": 1,
+        "cognitive_complexity": 0,
+        "num_classes": 0,
+        "num_imports": 0,
+        "num_variables": 0,
+        "overall_score": 5.0
+      },
+      "error": "Max iterations reached"
+    }
+  ]
+}
