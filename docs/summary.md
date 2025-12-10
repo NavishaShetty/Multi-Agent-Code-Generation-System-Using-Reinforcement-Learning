@@ -1,6 +1,6 @@
-# Training Summary
+# Summary
 
-This document summarizes the training process and results for the RL-based multi-agent code generation orchestrator.
+This document summarizes the project, training process and results for the RL-based multi-agent code generation orchestrator.
 
 ## Project Goal
 
