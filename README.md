@@ -76,6 +76,18 @@ python training/validate_real.py --tasks 5
 python training/evaluate.py
 ```
 
+## Running Unit Tests
+
+Run all unit tests with pytest:
+```bash
+python -m pytest tests/ -v
+```
+
+Run with coverage report:
+```bash
+python -m pytest tests/ --cov=. --cov-report=html
+```
+
 ## Testing the Agents
 
 To verify the agents are working correctly:
@@ -154,6 +166,12 @@ Multi-Agent-Code-Generation-System-Using-RL/
 ├── demo/                     # Demonstration
 │   └── demo.py               # Interactive demo script
 │
+├── tests/                    # Unit tests
+│   ├── test_blackboard.py    # Communication tests
+│   ├── test_tools.py         # Tools tests
+│   ├── test_environment.py   # Environment tests
+│   └── test_rl.py            # RL agents tests
+│
 ├── utils/                    # Utilities
 │   └── api.py                # OpenRouter API client
 │
@@ -171,7 +189,7 @@ Multi-Agent-Code-Generation-System-Using-RL/
 - `tests_pass`: bool (2 values)
 - `iteration_bucket`: 0-3 (4 values)
 
-Total: 2 × 2 × 2 × 2 × 4 = 64 states
+Total: 2 * 2 * 2 * 2 * 4 = 64 states
 
 ### Action Space (4 actions)
 - `planner`: Generate task plan
