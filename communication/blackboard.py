@@ -14,13 +14,13 @@ from enum import Enum
 
 class MessageType(Enum):
     """Types of messages that can be posted to the blackboard."""
-    TASK = "task"              # Initial coding task
-    PLAN = "plan"              # Plan from Planner agent
-    CODE = "code"              # Code from Coder agent
-    TEST_RESULT = "test_result"  # Results from test execution
-    ERROR = "error"            # Error messages
-    FEEDBACK = "feedback"      # Feedback/analysis from Tester agent
-    DEBUG = "debug"            # Debug info from Debugger agent
+    TASK = "task"                   # Initial coding task
+    PLAN = "plan"                   # Plan from Planner agent
+    CODE = "code"                   # Code from Coder agent
+    TEST_RESULT = "test_result"     # Results from test execution
+    ERROR = "error"                 # Error messages
+    FEEDBACK = "feedback"           # Feedback/analysis from Tester agent
+    DEBUG = "debug"                 # Debug info from Debugger agent
 
 
 @dataclass
@@ -242,4 +242,4 @@ if __name__ == "__main__":
 
     # Get state summary
     print(f"\nState: {bb.get_state_summary()}")
-    print("✓ Blackboard communication system working!")
+    print("Blackboard communication system working!")

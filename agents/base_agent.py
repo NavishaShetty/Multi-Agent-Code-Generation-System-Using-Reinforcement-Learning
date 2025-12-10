@@ -105,4 +105,4 @@ class BaseAgent(ABC):
 if __name__ == "__main__":
     # Test basic functionality (this will fail since BaseAgent is abstract)
     print("BaseAgent is an abstract class - cannot be instantiated directly")
-    print("✓ Base agent module loaded successfully!")
+    print("Base agent module loaded successfully!")

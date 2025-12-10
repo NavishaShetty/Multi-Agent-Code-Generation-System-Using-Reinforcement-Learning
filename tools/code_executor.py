@@ -190,4 +190,4 @@ def add(a, b):
     for i, r in enumerate(results):
         print(f"Test {i+1}: {r.output if r.success else r.error}")
 
-    print("\n✓ Code executor working!")
+    print("\nCode executor working!")

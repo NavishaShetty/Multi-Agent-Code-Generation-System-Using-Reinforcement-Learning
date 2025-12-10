@@ -1,27 +1,27 @@
 {
   "metadata": {
-    "timestamp": "2025-12-05T16:59:52.388808",
+    "timestamp": "2025-12-10T17:21:41.073322",
     "baseline_path": "experiments/results/baseline.json",
     "validation_path": "experiments/results/validation.json"
   },
   "comparison": {
     "fixed_policy": {
-      "success_rate": 0.667,
-      "avg_iterations": 3.0,
-      "avg_time_seconds": 34.33,
+      "success_rate": 1.0,
+      "avg_iterations": 1.8,
+      "avg_time_seconds": 27.75,
       "total_agent_calls": {
-        "planner": 3,
-        "coder": 3,
+        "planner": 5,
+        "coder": 5,
         "tester": 9,
-        "debugger": 7
+        "debugger": 4
       }
     },
     "learned_policy": {
       "success_rate": 1.0,
-      "avg_reward": 10.05
+      "avg_reward": 10.1
     },
     "improvement": {
-      "success_rate_diff": 0.33299999999999996
+      "success_rate_diff": 0.0
     }
   }
 }

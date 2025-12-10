@@ -12,6 +12,7 @@ from environment.state import State, ACTIONS
 
 
 # Reward constants
+# Tuned based on validation experiments to better match real LLM behavior
 REWARDS = {
     "task_success": 10.0,       # Tests pass - big reward
     "task_timeout": -5.0,       # Max iterations exceeded
@@ -19,7 +20,7 @@ REWARDS = {
     "progress_code": 0.3,       # Wrote code
     "tests_pass_partial": 1.0,  # Some tests pass
     "error_fixed": 0.5,         # Debugger fixed an error
-    "redundant_action": -0.5,   # Called planner when already have plan
+    "redundant_action": -0.2,   # Tuned from -0.5 - less harsh for redundant actions
     "invalid_action": -0.3,     # Called tester without code
     "step_cost": -0.1,          # Small cost per step (encourages efficiency)
 }
@@ -152,4 +153,4 @@ if __name__ == "__main__":
     r = rf.calculate(s1, "tester", s2, done=False)
     print(f"Invalid tester: {r} (expected ~{REWARDS['invalid_action'] + REWARDS['step_cost']})")
 
-    print("\n✓ Reward function working!")
+    print("\nReward function working!")

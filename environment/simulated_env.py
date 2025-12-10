@@ -19,12 +19,16 @@ from environment.rewards import RewardFunction
 
 @dataclass
 class SimulationConfig:
-    """Configuration for simulation probabilities."""
+    """Configuration for simulation probabilities.
+
+    These probabilities are tuned to better match real LLM behavior
+    based on validation experiments.
+    """
     planner_success: float = 0.95
-    coder_success_with_plan: float = 0.70
-    coder_success_without_plan: float = 0.30
+    coder_success_with_plan: float = 0.85      # Tuned from 0.70 - LLM is quite good
+    coder_success_without_plan: float = 0.60   # Tuned from 0.30 - LLM can code simple tasks
     tester_finds_error: float = 0.40  # Probability of finding bugs if there are any
-    debugger_fixes_error: float = 0.50
+    debugger_fixes_error: float = 0.70         # Tuned from 0.50 - debugger is effective
     max_iterations: int = 5
 
 
@@ -251,4 +255,4 @@ if __name__ == "__main__":
     print("Benchmarking speed...")
     benchmark_speed()
 
-    print("\n✓ Simulated environment working!")
+    print("\nSimulated environment working!")

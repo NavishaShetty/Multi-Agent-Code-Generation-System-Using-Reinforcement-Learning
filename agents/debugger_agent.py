@@ -25,20 +25,20 @@ class DebuggerAgent(BaseAgent):
     def _get_system_prompt(self) -> str:
         return """You are a debugging agent. Your job is to fix code errors.
 
-Rules:
-1. Read the error message or feedback carefully
-2. Identify the root cause of the issue
-3. Fix ONLY the issues mentioned - don't over-engineer
-4. Output ONLY the corrected Python code in a ```python block
-5. Do NOT include explanations outside the code block
+            Rules:
+            1. Read the error message or feedback carefully
+            2. Identify the root cause of the issue
+            3. Fix ONLY the issues mentioned - don't over-engineer
+            4. Output ONLY the corrected Python code in a ```python block
+            5. Do NOT include explanations outside the code block
 
-Example output format:
-```python
-def fixed_function(params):
-    \"\"\"Docstring.\"\"\"
-    # corrected implementation
-    return result
-```"""
+            Example output format:
+            ```python
+            def fixed_function(params):
+                \"\"\"Docstring.\"\"\"
+                # corrected implementation
+                return result
+            ```"""
 
     def fix_code(self, code: str, error: str, blackboard: Blackboard) -> str:
         """
@@ -56,15 +56,15 @@ def fixed_function(params):
 
         prompt = f"""Original task: {task}
 
-Code with issues:
-```python
-{code}
-```
+        Code with issues:
+        ```python
+        {code}
+        ```
 
-Issues to fix:
-{error}
+        Issues to fix:
+        {error}
 
-Fix these issues and output ONLY the corrected code in a ```python block."""
+        Fix these issues and output ONLY the corrected code in a ```python block."""
 
         response = self.call_llm(prompt)
         fixed_code = self.extract_code(response)
@@ -108,6 +108,6 @@ if __name__ == "__main__":
         agent = DebuggerAgent()
         fixed = agent.fix_code(code, error, bb)
         print(f"Fixed code:\n{fixed}")
-        print("\n✓ Debugger agent working!")
+        print("\nDebugger agent working!")
     except Exception as e:
         print(f"Error (API key may not be set): {e}")

@@ -95,7 +95,13 @@ class OpenRouterClient:
             )
 
         result = response.json()
-        return result["choices"][0]["message"]["content"]
+
+        if "choices" not in result or not result["choices"]:
+            # API returned unexpected structure (e.g., rate limit, error)
+            return ""
+
+        content = result["choices"][0]["message"]["content"]
+        return content or ""
 
     def test_connection(self) -> bool:
         """

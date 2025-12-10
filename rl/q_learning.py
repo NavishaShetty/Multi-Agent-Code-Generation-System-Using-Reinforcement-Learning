@@ -21,11 +21,11 @@ class QLearningAgent:
     Tabular Q-Learning agent.
 
     Q-Learning update formula:
-    Q(s,a) = Q(s,a) + α * (r + γ * max_a' Q(s',a') - Q(s,a))
+    Q(s,a) = Q(s,a) + alpha * (r + gamma * max_a' Q(s',a') - Q(s,a))
 
     Where:
-    - α = learning rate
-    - γ = discount factor
+    - alpha = learning rate
+    - gamma = discount factor
     - r = immediate reward
     - max_a' Q(s',a') = maximum Q-value in next state
     """
@@ -132,7 +132,7 @@ class QLearningAgent:
         """
         Update Q-value using Q-learning formula.
 
-        Q(s,a) = Q(s,a) + α * (r + γ * max_a' Q(s',a') - Q(s,a))
+        Q(s,a) = Q(s,a) + alpha * (r + gamma * max_a' Q(s',a') - Q(s,a))
 
         Args:
             state: Current state
@@ -285,4 +285,4 @@ if __name__ == "__main__":
         best = max(q_vals.keys(), key=lambda a: q_vals[a])
         print(f"  {s}: {best} (Q={q_vals[best]:.2f})")
 
-    print("\n✓ Q-Learning agent working!")
+    print("\nQ-Learning agent working!")

@@ -332,4 +332,4 @@ def process_data(data, options=None):
     print(f"  Metrics: {metrics.to_dict()}")
     print(f"  Rating: {analyzer.get_complexity_rating(metrics)}")
 
-    print("\n✓ Complexity analyzer working!")
+    print("\nComplexity analyzer working!")

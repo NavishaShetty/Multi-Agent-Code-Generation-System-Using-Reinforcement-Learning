@@ -22,18 +22,26 @@ A Reinforcement Learning-based orchestrator for a multi-agent code generation sy
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd code-gen-rl
+cd Multi-Agent-Code-Generation-System-Using-RL
 ```
 
-2. Install dependencies:
+2. Create and activate a virtual environment (recommended):
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Set up your OpenRouter API key:
+4. Set up your OpenRouter API key:
 ```bash
 export OPENROUTER_API_KEY="your-api-key-here"
 ```
+
+Alternatively, you can add the API key to `config.yaml` directly.
 
 ## Quick Start
 
@@ -60,7 +68,7 @@ python scripts/collect_baseline.py --tasks 5
 
 ### 5. Validate with Real LLM
 ```bash
-python training/validate_real.py --tasks 3
+python training/validate_real.py --tasks 5
 ```
 
 ### 6. Compare Results
@@ -90,50 +98,68 @@ python scripts/collect_baseline.py
 ## Project Structure
 
 ```
-code-gen-rl/
-├── agents/                 # LLM-powered agents
-│   ├── base_agent.py       # Abstract base class
-│   ├── planner_agent.py    # Task planning
-│   ├── coder_agent.py      # Code generation
-│   ├── tester_agent.py     # Code analysis
-│   └── debugger_agent.py   # Bug fixing
+Multi-Agent-Code-Generation-System-Using-RL/
+├── agents/                   # LLM-powered agents
+│   ├── base_agent.py         # Abstract base class
+│   ├── planner_agent.py      # Task planning
+│   ├── coder_agent.py        # Code generation
+│   ├── tester_agent.py       # Code analysis
+│   └── debugger_agent.py     # Bug fixing
 │
-├── communication/          # Agent communication
-│   └── blackboard.py       # Shared message board
+├── communication/            # Agent communication
+│   └── blackboard.py         # Shared message board
 │
-├── tools/                  # Tools for agents
-│   ├── code_executor.py    # Safe code execution
-│   ├── test_runner.py      # Test generation and running
-│   └── complexity_analyzer.py  # CUSTOM TOOL
+├── tools/                    # Tools for agents
+│   ├── code_executor.py      # Safe code execution
+│   ├── test_runner.py        # Test generation and running
+│   └── complexity_analyzer.py    # Custom complexity metrics tool
 │
-├── rl/                     # Reinforcement Learning
-│   ├── q_learning.py       # Q-Learning implementation
-│   ├── thompson_sampling.py # Thompson Sampling
-│   └── combined_agent.py   # Q-Learning + Thompson Sampling
+├── rl/                       # Reinforcement Learning
+│   ├── q_learning.py         # Q-Learning implementation
+│   ├── thompson_sampling.py  # Thompson Sampling
+│   └── combined_agent.py     # Q-Learning + Thompson Sampling
 │
-├── environment/            # RL Environment
-│   ├── state.py            # State representation
-│   ├── rewards.py          # Reward function
-│   ├── simulated_env.py    # Fast simulation
-│   └── coding_env.py       # Real LLM environment
+├── environment/              # RL Environment
+│   ├── state.py              # State representation
+│   ├── rewards.py            # Reward function
+│   ├── simulated_env.py      # Fast simulation for training
+│   └── coding_env.py         # Real LLM environment
 │
-├── training/               # Training scripts
-│   ├── train_simulated.py  # Train on simulation
-│   ├── validate_real.py    # Test with real LLM
-│   └── evaluate.py         # Compare policies
+├── orchestrator/             # Pipeline orchestration
+│   └── fixed_pipeline.py     # Fixed agent sequence pipeline
 │
-├── visualization/          # Plotting
-│   ├── learning_curves.py  # Training progress
-│   └── q_table_viz.py      # Q-value visualization
+├── training/                 # Training scripts
+│   ├── train_simulated.py    # Train on simulation
+│   ├── validate_real.py      # Validate with real LLM
+│   └── evaluate.py           # Compare policies
 │
-├── experiments/results/    # Saved results
-│   ├── q_table.json        # Trained Q-table
-│   ├── learning_curves.png # Training plots
-│   └── comparison.json     # Policy comparison
+├── visualization/            # Plotting
+│   ├── learning_curves.py    # Training progress plots
+│   └── q_table_viz.py        # Q-value heatmap and policy diagram
 │
-└── scripts/                # Utility scripts
-    ├── sanity_check.py     # API verification
-    └── collect_baseline.py # Baseline metrics
+├── experiments/results/      # Saved results
+│   ├── training_history.json # Training metrics
+│   ├── q_table.json          # Trained Q-table
+│   ├── baseline.json         # Fixed pipeline results
+│   ├── validation.json       # Learned policy results
+│   ├── comparison.json       # Policy comparison
+│   ├── learning_curves.png   # Training plots
+│   ├── q_table_heatmap.png   # Q-value visualization
+│   └── policy_diagram.png    # Policy decision diagram
+│
+├── scripts/                  # Utility scripts
+│   ├── sanity_check.py       # API verification
+│   └── collect_baseline.py   # Baseline metrics collection
+│
+├── demo/                     # Demonstration
+│   └── demo.py               # Interactive demo script
+│
+├── utils/                    # Utilities
+│   └── api.py                # OpenRouter API client
+│
+├── config.yaml               # Configuration file
+├── requirements.txt          # Python dependencies
+└── README.md                 # This file
 ```
 
 ## RL Formulation
@@ -161,7 +187,7 @@ Total: 2 × 2 × 2 × 2 × 4 = 64 states
 | Progress (plan) | +0.2 |
 | Progress (code) | +0.3 |
 | Error fixed | +0.5 |
-| Redundant action | -0.5 |
+| Redundant action | -0.2 |
 | Invalid action | -0.3 |
 | Step cost | -0.1 |
 
@@ -186,10 +212,18 @@ Edit `config.yaml` to customize:
 
 ## Results
 
-After training, the RL agent learns an effective policy:
-- **Success rate**: ~85-90% on simulated tasks
-- **Training time**: <1 second for 5000 episodes
-- **Key insight**: Agent learns to plan first, then code, test, and debug as needed
+After training with tuned simulation parameters, the RL agent learns an efficient policy:
+
+| Metric | Fixed Pipeline | Learned Policy |
+|--------|---------------|----------------|
+| Success Rate | 100% | 100% |
+| Avg Steps | 1.8 iterations | 2 steps |
+| Strategy | planner, coder, tester, debugger | coder, tester |
+
+Key findings:
+- Training completes in less than 1 second for 5000 episodes
+- The agent learns to skip planning for simple tasks, going directly to coding
+- Simulation parameters were tuned to match real LLM behavior (see environment/simulated_env.py)
 
 ## Custom Tool: Complexity Analyzer
 

@@ -2,7 +2,7 @@
 Fixed Orchestration Pipeline - Hardcoded agent sequence.
 
 This implements the baseline fixed-sequence pipeline:
-Planner → Coder → Tester → (Debugger → Tester)*
+Planner -> Coder -> Tester -> (Debugger -> Tester)*
 
 The RL agent will later learn to improve upon this fixed strategy.
 """
@@ -43,7 +43,7 @@ class FixedPipeline:
     """
     Fixed orchestration pipeline with hardcoded sequence.
 
-    Sequence: Planner → Coder → Tester → (Debugger → Tester)*
+    Sequence: Planner -> Coder -> Tester -> (Debugger -> Tester)*
     Max iterations: configurable (default 5)
     """
 
@@ -147,7 +147,7 @@ class FixedPipeline:
                     metrics = self.complexity_analyzer.analyze(current_code)
 
                     if verbose:
-                        print(f"\n✓ SUCCESS after {iterations} iteration(s)!")
+                        print(f"\n SUCCESS after {iterations} iteration(s)!")
                         print(f"   Time: {elapsed:.2f}s")
                         print(f"   Complexity score: {metrics.overall_score()}")
 

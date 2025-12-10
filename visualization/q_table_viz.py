@@ -93,7 +93,7 @@ def plot_q_table_heatmap(
         if s.has_error:
             parts.append("E")
         if s.tests_pass:
-            parts.append("✓")
+            parts.append("pass")
         label += "+".join(parts) if parts else "empty"
         label += f" (i={s.iteration})"
         state_labels.append(label)
@@ -122,7 +122,7 @@ def plot_q_table_heatmap(
             ax.text(j, i, f'{value:.1f}', ha='center', va='center',
                    color=text_color, fontsize=8)
 
-    ax.set_title('Q-Table Heatmap\n(P=Plan, C=Code, E=Error, ✓=Pass, i=iteration)')
+    ax.set_title('Q-Table Heatmap\n(P=Plan, C=Code, E=Error, pass=Pass, i=iteration)')
     ax.set_xlabel('Action')
     ax.set_ylabel('State')
 
@@ -239,7 +239,7 @@ if __name__ == "__main__":
         plot_q_table_heatmap(q_table_path)
         plot_policy_diagram(q_table_path)
         print_policy_summary(q_table_path)
-        print("\n✓ Q-table visualization complete!")
+        print("\nQ-table visualization complete!")
     else:
         print(f"Q-table not found at {q_table_path}")
         print("Run training/train_simulated.py first.")

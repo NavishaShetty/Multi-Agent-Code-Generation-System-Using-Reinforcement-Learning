@@ -1,27 +1,27 @@
 {
   "metadata": {
-    "timestamp": "2025-12-05T16:43:54.903225",
+    "timestamp": "2025-12-10T16:58:56.977560",
     "pipeline_type": "fixed",
     "max_iterations": 5
   },
   "summary": {
-    "total_tasks": 3,
-    "successful_tasks": 2,
-    "success_rate": 0.667,
-    "avg_iterations": 3.0,
-    "avg_time_seconds": 34.33,
-    "total_time_seconds": 102.99,
+    "total_tasks": 5,
+    "successful_tasks": 5,
+    "success_rate": 1.0,
+    "avg_iterations": 1.8,
+    "avg_time_seconds": 27.75,
+    "total_time_seconds": 138.77,
     "total_agent_calls": {
-      "planner": 3,
-      "coder": 3,
+      "planner": 5,
+      "coder": 5,
       "tester": 9,
-      "debugger": 7
+      "debugger": 4
     },
     "avg_agent_calls_per_task": {
       "planner": 1.0,
       "coder": 1.0,
-      "tester": 3.0,
-      "debugger": 2.33
+      "tester": 1.8,
+      "debugger": 0.8
     }
   },
   "results": [
@@ -29,28 +29,28 @@
       "task_id": 1,
       "task": "Write a function that returns the sum of two numbers",
       "success": true,
-      "iterations": 2,
-      "time": 22.98,
+      "iterations": 3,
+      "time": 35.7,
       "agent_calls": {
         "planner": 1,
         "coder": 1,
-        "tester": 2,
-        "debugger": 1
+        "tester": 3,
+        "debugger": 2
       },
       "test_results": {
         "passed": 4,
         "total": 4
       },
       "complexity": {
-        "cyclomatic_complexity": 1,
-        "lines_of_code": 3,
+        "cyclomatic_complexity": 3,
+        "lines_of_code": 4,
         "num_functions": 1,
-        "max_nesting_depth": 1,
-        "cognitive_complexity": 0,
+        "max_nesting_depth": 2,
+        "cognitive_complexity": 5,
         "num_classes": 0,
         "num_imports": 0,
         "num_variables": 0,
-        "overall_score": 5.0
+        "overall_score": 19.5
       },
       "error": null
     },
@@ -58,59 +58,117 @@
       "task_id": 2,
       "task": "Write a function that reverses a string",
       "success": true,
-      "iterations": 2,
-      "time": 23.75,
+      "iterations": 1,
+      "time": 12.75,
       "agent_calls": {
         "planner": 1,
         "coder": 1,
-        "tester": 2,
-        "debugger": 1
+        "tester": 1,
+        "debugger": 0
       },
       "test_results": {
         "passed": 4,
         "total": 4
       },
       "complexity": {
-        "cyclomatic_complexity": 1,
-        "lines_of_code": 3,
+        "cyclomatic_complexity": 2,
+        "lines_of_code": 13,
         "num_functions": 1,
-        "max_nesting_depth": 1,
-        "cognitive_complexity": 0,
+        "max_nesting_depth": 2,
+        "cognitive_complexity": 2,
         "num_classes": 0,
         "num_imports": 0,
         "num_variables": 0,
-        "overall_score": 5.0
+        "overall_score": 13.0
       },
       "error": null
     },
     {
       "task_id": 3,
       "task": "Write a function that checks if a number is even",
-      "success": false,
-      "iterations": 5,
-      "time": 56.26,
+      "success": true,
+      "iterations": 3,
+      "time": 62.25,
       "agent_calls": {
         "planner": 1,
         "coder": 1,
-        "tester": 5,
-        "debugger": 5
+        "tester": 3,
+        "debugger": 2
       },
       "test_results": {
-        "passed": 0,
-        "total": 1
+        "passed": 4,
+        "total": 4
       },
       "complexity": {
-        "cyclomatic_complexity": 1,
-        "lines_of_code": 8,
+        "cyclomatic_complexity": 2,
+        "lines_of_code": 4,
         "num_functions": 1,
-        "max_nesting_depth": 1,
-        "cognitive_complexity": 0,
+        "max_nesting_depth": 2,
+        "cognitive_complexity": 2,
         "num_classes": 0,
         "num_imports": 0,
         "num_variables": 0,
-        "overall_score": 5.0
+        "overall_score": 13.0
       },
-      "error": "Max iterations reached"
+      "error": null
+    },
+    {
+      "task_id": 4,
+      "task": "Write a function that finds the maximum in a list",
+      "success": true,
+      "iterations": 1,
+      "time": 15.88,
+      "agent_calls": {
+        "planner": 1,
+        "coder": 1,
+        "tester": 1,
+        "debugger": 0
+      },
+      "test_results": {
+        "passed": 4,
+        "total": 4
+      },
+      "complexity": {
+        "cyclomatic_complexity": 4,
+        "lines_of_code": 9,
+        "num_functions": 1,
+        "max_nesting_depth": 3,
+        "cognitive_complexity": 7,
+        "num_classes": 0,
+        "num_imports": 2,
+        "num_variables": 2,
+        "overall_score": 27.5
+      },
+      "error": null
+    },
+    {
+      "task_id": 5,
+      "task": "Write a function that counts vowels in a string",
+      "success": true,
+      "iterations": 1,
+      "time": 12.19,
+      "agent_calls": {
+        "planner": 1,
+        "coder": 1,
+        "tester": 1,
+        "debugger": 0
+      },
+      "test_results": {
+        "passed": 4,
+        "total": 4
+      },
+      "complexity": {
+        "cyclomatic_complexity": 3,
+        "lines_of_code": 7,
+        "num_functions": 1,
+        "max_nesting_depth": 3,
+        "cognitive_complexity": 5,
+        "num_classes": 0,
+        "num_imports": 0,
+        "num_variables": 3,
+        "overall_score": 22.5
+      },
+      "error": null
     }
   ]
 }

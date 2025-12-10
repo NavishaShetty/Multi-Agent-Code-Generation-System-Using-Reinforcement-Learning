@@ -313,4 +313,4 @@ if __name__ == "__main__":
         best = max(q_vals.keys(), key=lambda a: q_vals[a])
         print(f"  {s}: {best} (Q={q_vals[best]:.2f})")
 
-    print("\n✓ Combined agent working!")
+    print("\nCombined agent working!")

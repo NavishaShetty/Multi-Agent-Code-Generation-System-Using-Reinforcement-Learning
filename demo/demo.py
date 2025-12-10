@@ -29,7 +29,7 @@ def demo_simulated():
 
     if Path(q_table_path).exists():
         agent.load(q_table_path)
-        print(f"✓ Loaded trained Q-table")
+        print(f" Loaded trained Q-table")
     else:
         print("! Q-table not found, using untrained agent")
 
