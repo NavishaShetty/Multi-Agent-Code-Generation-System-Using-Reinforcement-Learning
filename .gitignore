@@ -47,7 +47,7 @@ env/
 .env.*
 !.env.example
 
-# API keys - NEVER commit these
+# API keys
 **/credentials*
 **/secrets*
 *.pem
@@ -69,9 +69,6 @@ tmp/
 temp/
 *.tmp
 *.bak
-
-# Claude Code
-.claude/
 
 # pytest
 .pytest_cache/
