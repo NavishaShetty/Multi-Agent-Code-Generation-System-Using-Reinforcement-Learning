@@ -102,7 +102,7 @@ def validate_learned_policy(
 
             total_reward += total_task_reward
 
-            status = "✓" if success else "✗"
+            status = "Pass" if success else "Fail"
             if verbose:
                 print(f"   {status} {'Success' if success else 'Failed'}\n")
 

@@ -253,7 +253,7 @@ if __name__ == "__main__":
         if env.current_code:
             print(f"\nFinal code:\n{env.current_code}")
 
-        print("\n✓ Real environment working!")
+        print("\nReal environment working!")
 
     except Exception as e:
         print(f"Error (API key may not be set): {e}")

@@ -23,7 +23,7 @@ class ThompsonSamplingAgent:
     Thompson Sampling agent for exploration.
 
     For each state-action pair, maintains a Beta distribution:
-    θ(s,a) ~ Beta(α_sa, β_sa)
+    theta(s,a) ~ Beta(alpha_sa, beta_sa)
 
     Action selection samples from these distributions and picks
     the action with the highest sampled value.
@@ -285,4 +285,4 @@ if __name__ == "__main__":
     print(f"Success rate: {successes}/1000 ({100*successes/1000:.0f}%)")
     print(f"Total updates: {agent.total_updates}")
 
-    print("\n✓ Thompson Sampling agent working!")
+    print("\nThompson Sampling agent working!")

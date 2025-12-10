@@ -23,22 +23,7 @@ class CoderAgent(BaseAgent):
         super().__init__(name="coder", api_key=api_key, model=model)
 
     def _get_system_prompt(self) -> str:
-        return """You are a coding agent. Write clean, working Python code.
-
-Rules:
-1. Output ONLY Python code in ```python blocks
-2. Include docstrings for functions
-3. Handle edge cases mentioned in the plan
-4. Keep the code simple and readable
-5. Do NOT include any explanations outside the code block
-
-Example output format:
-```python
-def function_name(params):
-    \"\"\"Docstring.\"\"\"
-    # implementation
-    return result
-```"""
+        return """You are a coding agent. Output ONLY Python code in ```python blocks. No explanations."""
 
     def generate_code(self, task: str, blackboard: Blackboard) -> str:
         """
@@ -55,16 +40,19 @@ def function_name(params):
         plan_msg = blackboard.get_latest_by_type(MessageType.PLAN)
 
         if plan_msg:
+            # Truncate plan to avoid hitting token limits
+            plan_content = plan_msg.content[:800] if len(plan_msg.content) > 800 else plan_msg.content
             prompt = f"""Task: {task}
 
-Plan to follow:
-{plan_msg.content}
+Plan:
+{plan_content}
 
-Write the Python code implementing this plan. Output ONLY the code in a ```python block."""
+Write Python code. Output ONLY code in ```python block."""
+
         else:
             prompt = f"""Task: {task}
 
-Write clean Python code to accomplish this task. Output ONLY the code in a ```python block."""
+Write Python code. Output ONLY code in ```python block."""
 
         response = self.call_llm(prompt)
         code = self.extract_code(response)
@@ -80,7 +68,6 @@ Write clean Python code to accomplish this task. Output ONLY the code in a ```py
 
 
 if __name__ == "__main__":
-    from communication.blackboard import Blackboard
 
     bb = Blackboard()
     task = "Write a function that reverses a string"
@@ -91,6 +78,6 @@ if __name__ == "__main__":
         agent = CoderAgent()
         code = agent.generate_code(task, bb)
         print(f"Generated code:\n{code}")
-        print("\n✓ Coder agent working!")
+        print("\nCoder agent working!")
     except Exception as e:
         print(f"Error (API key may not be set): {e}")

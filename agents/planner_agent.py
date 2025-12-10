@@ -25,13 +25,13 @@ class PlannerAgent(BaseAgent):
     def _get_system_prompt(self) -> str:
         return """You are a planning agent for code generation tasks. Your job is to:
 
-1. Analyze the coding task carefully
-2. Break it down into clear, actionable steps
-3. Identify edge cases that should be handled
-4. Suggest the function signature and parameters
+            1. Analyze the coding task carefully
+            2. Break it down into clear, actionable steps
+            3. Identify edge cases that should be handled
+            4. Suggest the function signature and parameters
 
-Output a structured plan with numbered steps. Be concise but thorough.
-Focus on the logic and approach, not the actual code."""
+            Output a structured plan with numbered steps. Be concise but thorough.
+            Focus on the logic and approach, not the actual code."""
 
     def generate_plan(self, task: str, blackboard: Blackboard) -> str:
         """
@@ -46,11 +46,11 @@ Focus on the logic and approach, not the actual code."""
         """
         prompt = f"""Task: {task}
 
-Create a detailed plan to implement this. Include:
-1. Function signature (name, parameters, return type)
-2. Step-by-step logic
-3. Edge cases to handle
-4. Any helper functions needed"""
+        Create a detailed plan to implement this. Include:
+        1. Function signature (name, parameters, return type)
+        2. Step-by-step logic
+        3. Edge cases to handle
+        4. Any helper functions needed"""
 
         plan = self.call_llm(prompt)
 
@@ -66,10 +66,8 @@ Create a detailed plan to implement this. Include:
 
 if __name__ == "__main__":
     # Quick test
-    from communication.blackboard import Blackboard
-
-    bb = Blackboard()
     task = "Write a function that finds the maximum element in a list"
+    bb = Blackboard()
     bb.set_task(task)
 
     print("Testing PlannerAgent...")
@@ -77,6 +75,6 @@ if __name__ == "__main__":
         agent = PlannerAgent()
         plan = agent.generate_plan(task, bb)
         print(f"Generated plan:\n{plan}")
-        print("\n✓ Planner agent working!")
+        print("\nPlanner agent working!")
     except Exception as e:
         print(f"Error (API key may not be set): {e}")

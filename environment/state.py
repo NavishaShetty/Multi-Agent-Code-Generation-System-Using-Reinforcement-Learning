@@ -21,7 +21,7 @@ class State:
     - tests_pass: bool (2 values)
     - iteration_bucket: int (0, 1, 2, 3+ = 4 values)
 
-    Total state space: 2 × 2 × 2 × 2 × 4 = 64 states
+    Total state space: 2 * 2 * 2 * 2 * 4 = 64 states
     """
     has_plan: bool = False
     has_code: bool = False
@@ -211,6 +211,6 @@ if __name__ == "__main__":
     for i in range(64):
         s = State.from_index(i)
         assert s.to_index() == i, f"Failed for index {i}"
-    print("✓ All 64 states roundtrip correctly")
+    print("All 64 states roundtrip correctly")
 
-    print("\n✓ State representation working!")
+    print("\nState representation working!")

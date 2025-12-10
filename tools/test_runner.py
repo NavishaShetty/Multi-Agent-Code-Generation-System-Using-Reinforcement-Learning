@@ -316,4 +316,4 @@ def find_max(lst):
     print(f"Passed: {result.tests_passed}/{result.total_tests}")
     print(f"All passed: {result.all_passed}")
 
-    print("\n✓ Test runner working!")
+    print("\nTest runner working!")

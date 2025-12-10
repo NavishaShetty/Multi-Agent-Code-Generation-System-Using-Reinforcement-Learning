@@ -184,7 +184,7 @@ if __name__ == "__main__":
 
     if Path(history_path).exists():
         plot_learning_curves(history_path)
-        print("✓ Learning curves generated!")
+        print("Learning curves generated!")
     else:
         print(f"Training history not found at {history_path}")
         print("Run training/train_simulated.py first.")

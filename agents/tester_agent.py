@@ -25,13 +25,13 @@ class TesterAgent(BaseAgent):
     def _get_system_prompt(self) -> str:
         return """You are a testing and code review agent. Analyze Python code for:
 
-1. Logical errors and bugs
-2. Missing edge case handling
-3. Potential runtime errors
-4. Incorrect implementation of requirements
+            1. Logical errors and bugs
+            2. Missing edge case handling
+            3. Potential runtime errors
+            4. Incorrect implementation of requirements
 
-Provide specific, actionable feedback. If the code looks correct, say "PASS" and briefly explain why.
-If there are issues, list them clearly with "FAIL:" prefix."""
+            Provide specific, actionable feedback. If the code looks correct, say "PASS" and briefly explain why.
+            If there are issues, list them clearly with "FAIL:" prefix."""
 
     def analyze_code(self, code: str, blackboard: Blackboard, task: Optional[str] = None) -> str:
         """
@@ -49,19 +49,19 @@ If there are issues, list them clearly with "FAIL:" prefix."""
 
         prompt = f"""Task: {task_desc}
 
-Code to analyze:
-```python
-{code}
-```
+        Code to analyze:
+        ```python
+        {code}
+        ```
 
-Analyze this code:
-1. Does it correctly implement the task?
-2. Are there any bugs or logical errors?
-3. Are edge cases handled properly?
-4. Will it raise any runtime errors?
+        Analyze this code:
+        1. Does it correctly implement the task?
+        2. Are there any bugs or logical errors?
+        3. Are edge cases handled properly?
+        4. Will it raise any runtime errors?
 
-If all good: Start with "PASS:" and brief explanation.
-If issues found: Start with "FAIL:" and list specific issues."""
+        If all good: Start with "PASS:" and brief explanation.
+        If issues found: Start with "FAIL:" and list specific issues."""
 
         feedback = self.call_llm(prompt)
 
@@ -89,7 +89,6 @@ If issues found: Start with "FAIL:" and list specific issues."""
 
 
 if __name__ == "__main__":
-    from communication.blackboard import Blackboard
 
     bb = Blackboard()
     task = "Write a function that finds the maximum in a list"
@@ -108,6 +107,6 @@ if __name__ == "__main__":
         feedback = agent.analyze_code(code, bb, task)
         print(f"Feedback:\n{feedback}")
         print(f"\nPassed: {agent.check_passed(feedback)}")
-        print("\n✓ Tester agent working!")
+        print("\nTester agent working!")
     except Exception as e:
         print(f"Error (API key may not be set): {e}")
