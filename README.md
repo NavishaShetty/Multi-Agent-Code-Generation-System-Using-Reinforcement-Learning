@@ -17,6 +17,11 @@ A Reinforcement Learning-based orchestrator for a multi-agent code generation sy
 - **Fast Simulation**: ~100k episodes/second for training
 - **Visualization**: Learning curves and Q-table heatmaps
 
+## Architecture Diagram
+
+<img width="900" height="1154" alt="image" src="https://github.com/user-attachments/assets/fcb3ea62-e29e-4777-927c-978ee66634e3" />
+
+
 ## Installation
 
 1. Clone the repository:
